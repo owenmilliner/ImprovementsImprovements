@@ -1,0 +1,16 @@
+name: Feedback
+description: Share general thoughts on Subtle Improvements
+labels: ["feedback"]
+body:
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your feedback
+      description: What do you like, dislike or think could be smoother?
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: Subtle Improvements version
+      placeholder: e.g. 0.3.0
