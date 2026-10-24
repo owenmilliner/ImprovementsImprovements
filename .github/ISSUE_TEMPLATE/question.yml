@@ -1,0 +1,16 @@
+name: Question
+description: Ask how something works or get help using the mod
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: Include the feature you're asking about and what you've already tried.
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: Subtle Improvements version
+      placeholder: e.g. 0.3.0

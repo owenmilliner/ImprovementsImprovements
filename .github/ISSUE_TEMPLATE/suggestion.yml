@@ -1,0 +1,27 @@
+name: Suggestion
+description: Suggest a new improvement or a change to an existing one
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Subtle Improvements is about small, vanilla-friendly quality-of-life tweaks, not new gameplay mechanics or automation. Please search existing issues first.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: What is annoying or repetitive in vanilla Minecraft today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: How should it behave? Mention anything you'd want to configure.
+    validations:
+      required: true
+  - type: textarea
+    id: vanilla
+    attributes:
+      label: Does it feel like vanilla?
+      description: Why would this fit naturally into Minecraft without giving a gameplay advantage?
