@@ -6,6 +6,17 @@ body:
     attributes:
       value: |
         Thanks for reporting! Please search existing issues first to avoid duplicates.
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Which mod?
+      description: Usually the mod you installed. Pick Improvements Core for the settings screen, the `/subtleimprovements` (`/si`) commands or the settings keybind. It comes bundled inside the mod and shows up in your mods list.
+      options:
+        - Subtle Improvements
+        - Improvements Core (settings screen, commands, keybind)
+        - Not sure
+    validations:
+      required: true
   - type: textarea
     id: what-happened
     attributes:
@@ -27,14 +38,14 @@ body:
     id: mod-version
     attributes:
       label: Subtle Improvements version
-      placeholder: e.g. 0.3.0
+      placeholder: e.g. 3.4.0
     validations:
       required: true
   - type: input
     id: minecraft-version
     attributes:
       label: Minecraft version
-      placeholder: e.g. 1.21.4
+      placeholder: e.g. 26.3
     validations:
       required: true
   - type: dropdown

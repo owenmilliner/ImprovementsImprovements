@@ -2,6 +2,17 @@ name: Feedback
 description: Share general thoughts on Subtle Improvements
 labels: ["feedback"]
 body:
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Which mod?
+      description: Usually the mod you installed. Pick Improvements Core for the settings screen, the `/subtleimprovements` (`/si`) commands or the settings keybind. It comes bundled inside the mod and shows up in your mods list.
+      options:
+        - Subtle Improvements
+        - Improvements Core (settings screen, commands, keybind)
+        - Not sure
+    validations:
+      required: true
   - type: textarea
     id: feedback
     attributes:
@@ -13,4 +24,4 @@ body:
     id: mod-version
     attributes:
       label: Subtle Improvements version
-      placeholder: e.g. 0.3.0
+      placeholder: e.g. 3.4.0

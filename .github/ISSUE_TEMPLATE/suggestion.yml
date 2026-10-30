@@ -6,6 +6,17 @@ body:
     attributes:
       value: |
         Subtle Improvements is about small, vanilla-friendly quality-of-life tweaks, not new gameplay mechanics or automation. Please search existing issues first.
+  - type: dropdown
+    id: mod
+    attributes:
+      label: Which mod?
+      description: Usually the mod you installed. Pick Improvements Core for the settings screen, the `/subtleimprovements` (`/si`) commands or the settings keybind. It comes bundled inside the mod and shows up in your mods list.
+      options:
+        - Subtle Improvements
+        - Improvements Core (settings screen, commands, keybind)
+        - Not sure
+    validations:
+      required: true
   - type: textarea
     id: problem
     attributes:
