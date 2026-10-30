@@ -5,14 +5,15 @@ body:
   - type: markdown
     attributes:
       value: |
-        Subtle Improvements is about small, vanilla-friendly quality-of-life tweaks, not new gameplay mechanics or automation. Please search existing issues first.
+        **Subtle Improvements** is about small, vanilla-friendly quality-of-life tweaks with no gameplay advantage. Ideas that change how the game plays, such as vein mining or an item magnet, belong in **Not So Subtle Improvements**. Please search existing issues first.
   - type: dropdown
     id: mod
     attributes:
       label: Which mod?
-      description: Usually the mod you installed. Pick Improvements Core for the settings screen, the `/subtleimprovements` (`/si`) commands or the settings keybind. It comes bundled inside the mod and shows up in your mods list.
+      description: Usually the mod you installed. Pick Improvements Core for the settings screen, the commands (such as `/si`) or the settings keybind. It comes bundled inside each mod and shows up in your mods list.
       options:
         - Subtle Improvements
+        - Not So Subtle Improvements
         - Improvements Core (settings screen, commands, keybind)
         - Not sure
     validations:
@@ -34,5 +35,5 @@ body:
   - type: textarea
     id: vanilla
     attributes:
-      label: Does it feel like vanilla?
-      description: Why would this fit naturally into Minecraft without giving a gameplay advantage?
+      label: Does it fit the mod?
+      description: "For Subtle Improvements: why it would fit naturally into Minecraft without a gameplay advantage. For Not So Subtle Improvements: how it stays optional and fair when turned on."

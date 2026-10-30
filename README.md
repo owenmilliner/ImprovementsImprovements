@@ -1,6 +1,6 @@
 # Subtle Improvements: Issues
 
-This repository is the public **issue tracker** for **Subtle Improvements**, a Minecraft mod for Fabric, Forge and NeoForge. Use it to report bugs, suggest improvements, give feedback or ask questions. It does not contain the mod's source code.
+This repository is the public **issue tracker** for **Subtle Improvements** and its sister mod **Not So Subtle Improvements**, Minecraft mods for Fabric, Forge and NeoForge. Use it to report bugs, suggest improvements, give feedback or ask questions. It does not contain the mod's source code.
 
 ## About the mod
 
@@ -12,9 +12,13 @@ Subtle Improvements is a collection of small, high-quality quality-of-life impro
 
 Examples include auto-replacing broken tools, sorting inventories, and shift + drag to quick-move many slots.
 
+### Not So Subtle Improvements
+
+A sister mod with the same focus on quality of life, for features that do change how the game plays, such as vein mining or an item magnet. Every feature is still optional. Suggestions that are too gameplay-changing for Subtle Improvements belong here.
+
 ### Improvements Core
 
-Your mods list also shows **Improvements Core**. It comes bundled inside Subtle Improvements, so there is nothing extra to install. It provides the settings screen, the settings keybind (default `\`) and the `/subtleimprovements` commands. Report problems with those here too, and pick "Improvements Core" when the form asks which mod.
+Your mods list also shows **Improvements Core**. It comes bundled inside each mod, so there is nothing extra to install. It provides the settings screen, the settings keybind (default `\`) and each mod's commands (such as `/subtleimprovements`). Report problems with those here too, and pick "Improvements Core" when the form asks which mod.
 
 ## How to submit an issue
 
@@ -32,7 +36,7 @@ Your mods list also shows **Improvements Core**. It comes bundled inside Subtle 
 4. **Fill in the details.** For bugs, include the mod version, Minecraft version, loader, other installed mods, steps to reproduce, and the relevant part of `latest.log` or the crash report.
 5. **One topic per issue.** Separate issues are easier to track and close.
 
-Suggestions should be small, vanilla-friendly quality-of-life changes. Gameplay-altering features such as X-ray, auto-mining or auto-combat are out of scope.
+Suggestions for Subtle Improvements should be small, vanilla-friendly quality-of-life changes. Ideas that change gameplay, such as vein mining or auto-eating, go to Not So Subtle Improvements: pick it when the form asks which mod.
 
 ## Labels
 
@@ -46,6 +50,7 @@ Maintainers apply labels while triaging; you don't need to add any. Your templat
 | `question` | You need help or clarification |
 | `fabric` / `forge` / `neoforge` | Applies to that loader's version |
 | `project:si` | About Subtle Improvements (added from your "Which mod?" answer) |
+| `project:nssi` | About Not So Subtle Improvements (added from your answer) |
 | `project:core` | About Improvements Core: the settings screen, keybind or commands (added from your answer) |
 | `needs-info` | Waiting on the reporter for more details |
 | `in development` | Accepted and currently being worked on |
