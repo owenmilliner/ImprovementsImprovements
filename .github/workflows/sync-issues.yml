@@ -1,8 +1,12 @@
 name: Sync issues to private repository
 
-# One-way mirror: issues and comments in this public repository are copied to
-# the private mod source repository. Each run reconciles the whole issue, so a
-# dropped or reordered event is corrected by the next one.
+# Issues and comments in this public repository are copied to the private mod
+# source repository. Each run reconciles the whole issue, so a dropped or
+# reordered event is corrected by the next one.
+# Labels and open/closed state set on a mirror come back here through
+# sync-issues-to-public.yml in the private repository; comments, titles and
+# bodies do not. Both workflows only write when the target differs, so each
+# one's echo of the other is a no-op.
 # Requires the SYNC_TOKEN secret: a fine-grained PAT limited to the private
 # repository with Issues (read and write) permission.
 #
@@ -117,6 +121,13 @@ jobs:
               }
             }
 
+            // Only add what is missing so the private sync gets no labeled echo.
+            async function addMissingLabels(mirror, labels) {
+              const present = new Set(mirror.labels.map((l) => (typeof l === 'string' ? l : l.name).toLowerCase()));
+              const missing = labels.map((l) => l.name).filter((name) => !present.has(name.toLowerCase()));
+              if (missing.length) await github.rest.issues.addLabels({ ...dest, issue_number: mirror.number, labels: missing });
+            }
+
             async function markGone(number, reason) {
               const mirror = await findMirror(number);
               if (!mirror) return;
@@ -169,7 +180,7 @@ jobs:
               await ensureLabels(labels);
 
               const title = `[Public #${number}] ${issue.title}`;
-              const body = `> Mirrored from ${issue.html_url}, opened by ${userLink(issue.user)}. Changes made here are not synced back.\n\n${clip(issue.body)}\n\n${issueMarker(number)}`;
+              const body = `> Mirrored from ${issue.html_url}, opened by ${userLink(issue.user)}. Labels and open/closed state set here are synced back; comments are not.\n\n${clip(issue.body)}\n\n${issueMarker(number)}`;
               const closeReason = issue.state_reason === 'not_planned' ? 'not_planned' : 'completed';
 
               let mirror = await findMirror(number);
@@ -199,12 +210,12 @@ jobs:
                     if (e.status !== 404) throw e;
                   }
                 } else if (isBackfill || action === 'labeled') {
-                  await github.rest.issues.addLabels({ ...dest, issue_number: mirror.number, labels: labels.map((l) => l.name) });
+                  await addMissingLabels(mirror, labels);
                 }
                 // The mod-label step changed labels with the built-in token, which
                 // starts no labeled/unlabeled run of its own, so apply them here.
                 if (process.env.MOD_LABEL_CHANGED === 'true') {
-                  await github.rest.issues.addLabels({ ...dest, issue_number: mirror.number, labels: labels.map((l) => l.name) });
+                  await addMissingLabels(mirror, labels);
                   for (const name of (process.env.MOD_LABEL_REMOVED || '').split(',').filter(Boolean)) {
                     try {
                       await github.rest.issues.removeLabel({ ...dest, issue_number: mirror.number, name });
