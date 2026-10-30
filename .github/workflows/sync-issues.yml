@@ -53,6 +53,7 @@ jobs:
           script: |
             const MOD_LABELS = {
               'Subtle Improvements': 'project:si',
+              'Not So Subtle Improvements': 'project:nssi',
               'Improvements Core (settings screen, commands, keybind)': 'project:core',
             };
             const issue = context.payload.issue;
